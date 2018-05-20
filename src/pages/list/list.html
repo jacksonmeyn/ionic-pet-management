@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Pet List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let pet of pets" (click)="editView()">
+          <h2>{{pet.name}}</h2>
+          <p>Species: {{pet.species}} Age: {{pet.age}}</p>
+        </button>  
+    </ion-list>
+</ion-content>

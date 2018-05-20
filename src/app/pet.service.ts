@@ -5,11 +5,11 @@
 //  There are various methods for updating the pet collection.
 //
 import { Pet } from './pet';
+import { PETS } from './mock-pets';
 
 export class PetService {
 	
-	private pets:[Pet] = <[Pet]>[];  // array of Pet objects
-	
+	private pets = PETS; //<[Pet]>[];  // array of Pet objects
 	//
 	//  add(p) - add a pet objects
 	//  returns true is successful or false if pet invalid or already exists
@@ -18,7 +18,8 @@ export class PetService {
 	//  the name attribute must be unique
 	//
 	add(p:Pet):boolean {
-		if (p.isValid() && this.getIndex(p.name)<0) {
+		if (//p.isValid() && 
+		this.getIndex(p.name)<0) {
 			let inserted:boolean = false;
 			for (let i:number = 0; i< this.pets.length; i++) {
 				if (this.pets[i].name > p.name) {
@@ -68,7 +69,8 @@ export class PetService {
 	//
 	update(p:Pet) {
 		let index:number = this.getIndex(p.name);
-		if (!(p.isValid() && index>=0)) {  // check data is valid and pet exists
+		if (//!(p.isValid() && 
+		index>=0) {  // check data is valid and pet exists
 			return false;
 		}
 		this.pets[index]=p;
@@ -105,5 +107,7 @@ export class PetService {
 		}
 		return -1;
 	}
+
+	
 	
 }
