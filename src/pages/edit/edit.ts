@@ -6,7 +6,7 @@ import { PetService } from '../../app/pet.service';
 import { Pet } from '../../app/pet';
 
 /**
- * Generated class for the AddPage page.
+ * Generated class for the EditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,10 +14,10 @@ import { Pet } from '../../app/pet';
 
 @IonicPage()
 @Component({
-  selector: 'page-add',
-  templateUrl: 'add.html',
+  selector: 'page-edit',
+  templateUrl: 'edit.html',
 })
-export class AddPage {
+export class EditPage {
 
   public name:string;
   public age: number;
@@ -31,28 +31,24 @@ export class AddPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
+    this.name = this.navParams.get('name');
+    this.age = this.navParams.get('age');
+    this.species = this.navParams.get('species');
+    this.gender = this.navParams.get('sex');
+    this.rego = this.navParams.get('rego');
+    this.phone = this.navParams.get('phone');
   }
 
-  add() {
-    let pet: Pet = new Pet(this.name,this.species,this.age, this.gender, this.rego, this.phone);
-    if (this.petService.add(pet)) {
+  save() {
+    let pet : Pet = new Pet(this.name,this.species,this.age,this.gender,this.rego,this.phone)
+
+    if(this.petService.update(pet)) {
       //Success toast
-      this.clearFields();
+      this.navCtrl.pop();
     } else {
       //Failure toast
     }
+    
   }
-
-  clearFields() {
-    this.name = "";
-    this.age = null;
-    this.species = "";
-    this.gender = "";
-    this.rego = null;
-    this.phone = "";
-  }
-
-
 
 }

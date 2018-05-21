@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { PetService } from '../../app/pet.service';
 
 import { Pet } from '../../app/pet';
-import { AddPage } from '../add/add';
+import { EditPage } from '../edit/edit';
 
 
 @Component({
@@ -27,8 +27,8 @@ export class ListPage implements OnInit {
     this.pets = this.petService.getAll();
   }
 
-  editView() {
-    this.navCtrl.push(AddPage);
+  editView(editPet: Pet) {
+    this.navCtrl.push(EditPage, editPet);
   }
 
 }

@@ -29,7 +29,7 @@ export class Pet {
 	//
 	// isValid() - validates all data fields
 	//
-	/* isValid():boolean {
+	isValid():boolean {
 		if (this.name==null || this.name=="") {
 			return false;
 		}
@@ -55,5 +55,5 @@ export class Pet {
 		}
 		
 		return true;
-	} */
+	}
 }

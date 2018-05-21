@@ -7,10 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <button ion-item *ngFor="let pet of pets" (click)="editView()">
+    <ion-list *ngIf="pets.length > 0; else noResults">
+        <button ion-item *ngFor="let pet of pets" (click)="editView(pet)">
           <h2>{{pet.name}}</h2>
           <p>Species: {{pet.species}} Age: {{pet.age}}</p>
         </button>  
     </ion-list>
+    <ng-template #noResults>
+      <p>No pets to display</p>
+    </ng-template>
 </ion-content>
