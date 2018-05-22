@@ -3,15 +3,26 @@
     <ion-title>
       Pet List
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-start (click)="helpModal()">
+          <ion-icon name="help"></ion-icon>
+          Help
+        </button>
+  </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-list *ngIf="pets.length > 0; else noResults">
-        <button ion-item *ngFor="let pet of pets" (click)="editView(pet)">
-          <h2>{{pet.name}}</h2>
-          <p>Species: {{pet.species}} Age: {{pet.age}}</p>
-        </button>  
+        <ion-item-sliding *ngFor="let pet of pets">
+            <ion-item (click)="editView(pet)">
+                <h2>{{pet.name}}</h2>
+                <p>Species: {{pet.species}} Age: {{pet.age}}</p>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="danger" (click)="confirmDelete(pet.name)"><ion-icon name="trash"></ion-icon>Delete</button>
+            </ion-item-options>
+        </ion-item-sliding>
     </ion-list>
     <ng-template #noResults>
       <p>No pets to display</p>

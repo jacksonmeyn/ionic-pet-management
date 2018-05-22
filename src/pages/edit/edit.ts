@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+
+import { HelpPage } from '../help/help';
 
 import { PetService } from '../../app/pet.service';
 
@@ -27,7 +29,8 @@ export class EditPage {
   public phone: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public petService: PetService) {
+              public petService: PetService, public modalController: ModalController,
+              public toastController: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -44,11 +47,29 @@ export class EditPage {
 
     if(this.petService.update(pet)) {
       //Success toast
+      let successToast = this.toastController.create({
+        message: "Pet named " + pet.name + " successfully edited",
+        duration: 4000,
+        position: "middle",
+        showCloseButton: true
+      });
+      successToast.present();
       this.navCtrl.pop();
     } else {
       //Failure toast
+      let failureToast = this.toastController.create({
+        message: "Pet not edited. Please see help to make sure your input is valid",
+        duration: 4000,
+        position: "middle",
+        showCloseButton: true
+      });
+      failureToast.present();
     }
-    
+  }
+
+  helpModal() {
+    let modal = this.modalController.create(HelpPage, {content: "Edit Pet"});
+    modal.present();
   }
 
 }

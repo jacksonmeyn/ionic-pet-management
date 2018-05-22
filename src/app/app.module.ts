@@ -7,6 +7,7 @@ import { ListPage } from '../pages/list/list';
 import { AddPage } from '../pages/add/add';
 import { HomePage } from '../pages/home/home';
 import { EditPage } from '../pages/edit/edit';
+import { HelpPage } from '../pages/help/help';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +22,7 @@ import { PetService } from './pet.service';
     AddPage,
     HomePage,
     EditPage,
+    HelpPage,
     TabsPage
   ],
   imports: [
@@ -34,6 +36,7 @@ import { PetService } from './pet.service';
     AddPage,
     HomePage,
     EditPage,
+    HelpPage,
     TabsPage
   ],
   providers: [
