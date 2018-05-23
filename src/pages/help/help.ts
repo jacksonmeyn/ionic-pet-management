@@ -7,7 +7,6 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class HelpPage {
 
-  title: string;
   content: string;
 
   constructor(public navCtrl: NavController,
@@ -17,7 +16,7 @@ export class HelpPage {
   }
 
   ionViewDidLoad() {
-    this.title = this.navParams.get('content');
+    this.content = this.navParams.get('content');
   }
 
   dismiss() {

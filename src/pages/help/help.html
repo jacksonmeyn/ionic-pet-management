@@ -5,13 +5,44 @@
             <ion-icon name="close"></ion-icon>
           </button>
         </ion-buttons>
-    <ion-title>{{title}} Help</ion-title>
+    <ion-title>{{content}} Help</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>{{title}}</h2>
-  <p>
-    {{content}}
-  </p>
+  <div *ngIf="content == 'Edit Pet'">
+    <h2>Editing a pet record</h2>
+    <p>Here you can make changes to an existing pet record. A pet's name cannot be changed.</p>
+    <p>Make sure the following rules are met:</p>
+    <ul>
+      <li>A species must be selected.</li>
+      <li>A pet's age must be a whole number.</li>
+      <li>A pet must have a gender.</li>
+      <li>A registration number is compulsory for cats and dogs, but optional for other species.</li>
+      <li>A contact number must be entered.</li>
+    </ul>
+    <h3>Want to delete a pet record?</h3>
+    <p>Deleting is done on the list page instead. Simply swipe the record and choose 'delete'.</p>
+  </div>
+
+  <div *ngIf="content == 'Add Pet'">
+    <h2>Adding a pet record</h2>
+    <p>Here you can add a new pet record.</p>
+    <p>Make sure the following rules are met:</p>
+    <ul>
+      <li>A pet must have a name. A new pet cannot have the same name as an existing pet</li>
+      <li>A species must be selected.</li>
+      <li>A pet's age must be selected and must be a whole number.</li>
+      <li>A pet must have a gender.</li>
+      <li>A registration number is compulsory for cats and dogs, but optional for other species.</li>
+      <li>A contact number must be entered.</li>
+    </ul>
+  </div>
+
+  <div *ngIf="content == 'Pet List'">
+    <h2>Pet List</h2>
+    <p>This page is a list of all pet records. Select a record to edit it.</p>
+      <h3>Want to delete a pet record?</h3>
+      <p>Simply swipe the record and choose 'delete'.</p>
+  </div>
 </ion-content>
