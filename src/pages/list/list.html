@@ -16,8 +16,8 @@
     <ion-list *ngIf="pets.length > 0; else noResults">
         <ion-item-sliding *ngFor="let pet of pets">
             <ion-item (click)="editView(pet)">
-                <h2>{{pet.name}}</h2>
-                <p>Species: {{pet.species}} Age: {{pet.age}}</p>
+                <h2>{{pet.name}}, {{pet.species}}, {{pet.age}} years old</h2>
+                <p>Gender: {{pet.sex}} Registration: <span *ngIf="pet.rego == 0">N/A</span><span *ngIf="pet.rego != 0">{{pet.rego}}</span> Contact: {{pet.phone}}</p>
             </ion-item>
             <ion-item-options side="right">
               <button ion-button color="danger" (click)="confirmDelete(pet.name)"><ion-icon name="trash"></ion-icon>Delete</button>

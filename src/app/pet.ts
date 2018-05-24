@@ -53,7 +53,7 @@ export class Pet {
 		if (this.phone == null) {
 			return false;
 		}
-		
+
 		return true;
 	}
 }

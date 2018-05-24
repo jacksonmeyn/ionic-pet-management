@@ -24,7 +24,6 @@ $app-direction: ltr;
 
 
 
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -45,6 +44,8 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+$toolbar-ios-background: #55acee;
+
 
 
 
@@ -52,14 +53,18 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$toolbar-md-background: #55acee;
+$tabs-md-tab-icon-color-active: color($colors, light, base);
+$tabs-md-tab-text-color-active: color($colors, light, base);
+$tabs-md-tab-icon-color: #55acee;
+$tabs-md-tab-text-color: #55acee;
 
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
+$toolbar-wp-background: #55acee;
 
 
 

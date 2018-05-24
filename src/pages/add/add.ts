@@ -39,10 +39,15 @@ export class AddPage {
 
   add() {
     //Handle blank rego number
+    let validatedRego : number;
     if (this.rego == undefined) {
-      this.rego = 0;
+      validatedRego = 0;
+    } else {
+      validatedRego = this.rego;
     }
-    let pet: Pet = new Pet(this.name,this.species,this.age, this.gender, this.rego, this.phone);
+
+    //Attempt to add pet
+    let pet: Pet = new Pet(this.name,this.species,this.age, this.gender, validatedRego, this.phone);
     if (this.petService.add(pet)) {
       //Success toast
       let successToast = this.toastController.create({

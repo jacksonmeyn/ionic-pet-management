@@ -9,7 +9,8 @@ import { PETS } from './mock-pets';
 
 export class PetService {
 	
-	private pets = PETS; //<[Pet]>[];  // array of Pet objects
+	private pets = PETS; //Array of mock pets, replace PETS with <[Pet]>[] to start with no pets
+	
 	//
 	//  add(p) - add a pet objects
 	//  returns true is successful or false if pet invalid or already exists
